@@ -1,4 +1,3 @@
 = Kalah
-Gilson Nyirimana <https://github.com/gilssonn>
 
 A console application for the board game Kalah in Java.
