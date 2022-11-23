@@ -1,25 +1,33 @@
-public class Player {
-    private String playerName;
-    private int playerWinCounter;
+import java.util.Scanner;
 
-    // Constructor, pn is an alias for playerName
-    Player(String pn) {
-        this.playerName = pn;
-        this.playerWinCounter = 0;
-    }
-
-    // Mutator method
-    public String getPlayerName() {
-        return playerName;
-    }
-
-    // Mutator method
-    public int getPlayerWinCounter() {
-        return playerWinCounter;
-    }
-
-    // Mutator method; pwc is an alias for playerWinCounter
-    public void setPlayerWinCounter(int pwc) {
-        this.playerWinCounter = pwc;
-    }
+public class Player 
+{
+	private String playerName;
+	private int playerWinCounter = 0;
+	
+	public Player(String name)
+	{
+		this.playerName = name;
+	}
+	
+	public Player(int playerNumber, Scanner input)
+	{
+		System.out.print("Please enter Player "+playerNumber+" name: ");
+		this.playerName = input.next();
+	}
+	
+	public String getPlayerName()
+	{
+		return playerName;
+	}
+	
+	public int getPlayerWinCounter()
+	{
+		return playerWinCounter;
+	}
+	
+	public void incPlayerWinCounter()
+	{
+		playerWinCounter++;
+	}
 }
