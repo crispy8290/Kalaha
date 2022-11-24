@@ -3,52 +3,7 @@ import java.util.Scanner;
 
 public class KalahGame 
 {
-	public static void main(String[] args)
-	{
-		KalahGame kalah = new KalahGame();
-		Scanner input = new Scanner(System.in);
-		//Player player1 = new Player(1, input);
-		//Player player2 = new Player(2, input);
-		Player player1 = new Player("Richard"); //delete later
-		Player player2 = new Player("Gilson"); //delete later
-		
-		do
-		{
-			kalah.startNewGame(player1, player2, input); //start new game
-			kalah.printBoard();
-			int startPoint = kalah.playerMove(player1, player2, input); //starting player makes first move
-			kalah.printBoard();
-			kalah.playerTurnSwitch(); //switch turns
 	
-			boolean steal = kalah.promptSteal(player1, player2, input); //prompt player to steal first move
-			if(steal == true) //if player decides to steal
-			{
-				kalah.stealMove(player1, player2, input, startPoint); //perform steal
-				kalah.printBoard();
-				kalah.gameEndCheck(player1, player2, input);
-				kalah.checkRepeatTurn(player1, player2, input); 
-				kalah.checkStealSeeds(player1, player2, input); 
-				kalah.playerTurnSwitch(); //switch turns
-			}
-			
-			kalah.gameEndCheck(player1, player2, input);
-			kalah.checkRepeatTurn(player1, player2, input); 
-			
-			while(kalah.getGameEnd() == false) //while game is not over, perform regular moves until win condition is met
-			{
-				kalah.playerMove(player1, player2, input);
-				kalah.printBoard();
-				kalah.gameEndCheck(player1, player2, input); 
-				kalah.checkRepeatTurn(player1, player2, input); 
-				kalah.checkStealSeeds(player1, player2, input); 
-				kalah.playerTurnSwitch();
-			}
-			kalah.displayEndGame(player1, player2, input);
-			
-		} while(kalah.playAgain(player1, player2, input) == true); //while players wish to start new game
-		
-		input.close();
-	}
 	
 	private int[] board;
 	private int pits;
@@ -63,7 +18,7 @@ public class KalahGame
 	
 	boolean getGameEnd() { return gameEnd; }
 	
-	private void startNewGame(Player player1, Player player2, Scanner input)
+	public void startNewGame(Player player1, Player player2, Scanner input)
 	{
 		gameEnd = false;
 		roundNumber++;
@@ -121,7 +76,7 @@ public class KalahGame
 		System.out.println("Round Number: "+roundNumber);
 	}
 	
-	private void makeBoard(int pits, int seeds)
+	public void makeBoard(int pits, int seeds)
 	{
 		board = new int [pits];
 		for(int i=0;i<pits;i++)
@@ -143,7 +98,7 @@ public class KalahGame
 		}
 	}
 	
-	private void printBoard()
+	public void printBoard()
 	{
 		System.out.print("\nCurrent board: \n      ");
 		for(int i=pits-1;i>(pits/2);i--) //prints player 2's pits
@@ -163,7 +118,7 @@ public class KalahGame
 		System.out.println("\n");
 	}
 	
-	private int obtainValidUserInput(Player player1, Player player2, Scanner input)
+	public int obtainValidUserInput(Player player1, Player player2, Scanner input)
 	{
 		int startPoint = 0; 
 		
