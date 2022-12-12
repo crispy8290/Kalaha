@@ -28,7 +28,7 @@ During a player's turn, the player selects one of their own non-empty pits (by e
 *Special First Turn*  
 The very first move in a new game will prompt the opponent to steal the move as their own first move. This is a game-balancing feature as in a perfect game, the starting player will always win.  
 
-Player1 move: index 1, Player2 is prompted to steal move  
+Player1's first move: index 1, Player2 is prompted to steal move  
 ![Screenshot 2022-12-11 231041](https://user-images.githubusercontent.com/92837310/206958928-07e6d434-d8b1-4a7c-84f2-ca03f54fb1cb.png)
 
 *Winning the Game*  
