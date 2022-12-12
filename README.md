@@ -28,6 +28,9 @@ During a player's turn, the player selects one of their own non-empty pits (by e
 *Special First Turn*  
 The very first move in a new game will prompt the opponent to steal the move as their own first move. This is a game-balancing feature as in a perfect game, the starting player will always win.  
 
+Player1 move: index 1, Player2 is prompted to steal move  
+![image](https://user-images.githubusercontent.com/92837310/206958447-7919d3bb-7af7-4f18-a97b-dafdbe258979.png)
+
 *Winning the Game*  
 If a game-ending scenario occurs at any time, the game is terminated and a winner is determined. Win conditions are as follows:   
 1. If a player's store has the the majority of available seeds, that player has won the game.  
