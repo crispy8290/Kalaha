@@ -14,6 +14,9 @@ There are two rows of pits (one upper and one lower), along with two stores (one
 Player 1 owns the lower row of pits and the right store.
 Player 2 owns the upper row of pits and the left store.
 
+p = 12, s = 6
+![Screenshot 2022-12-11 230422](https://user-images.githubusercontent.com/92837310/206958183-4741d9f9-89aa-4dca-ad97-0ba88a2932ad.png)
+
 *Objective*  
 The objective of the game is for a player to have the majority of available seeds in their own store.  
 
