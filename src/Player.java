@@ -13,7 +13,7 @@ public class Player
 	public Player(int playerNumber, Scanner input)
 	{
 		System.out.print("Please enter Player "+playerNumber+" name: ");
-		this.playerName = input.next();
+		this.playerName = input.nextLine();
 	}
 	
 	public String getPlayerName()
