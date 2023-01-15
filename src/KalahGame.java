@@ -3,8 +3,6 @@ import java.util.Scanner;
 
 public class KalahGame 
 {
-	
-	
 	private int[] board;
 	private int pits;
 	private int seeds;
@@ -18,19 +16,20 @@ public class KalahGame
 	
 	boolean getGameEnd() { return gameEnd; }
 	
-	public void startNewGame(Player player1, Player player2, Scanner input)
+	public void startNewGame(Player player1, Player player2, Scanner input) //initializes the number of pits and seeds, player store indexes, as well as the board array
 	{
 		gameEnd = false;
 		roundNumber++;
-	      
+	    
+		//obtain valid user input for the total number of pits (excludes 2 player stores)
 	    boolean pitsValid = false;
 	    while(pitsValid == false)
 	    {
 	    	System.out.print("Please enter the total number of pits: ");
 	    	try
 	    	{
-	    		pits = input.nextInt()+2;
-	    		if(pits >= 2 && pits <= 20 && pits % 2 == 0)
+	    		pits = input.nextInt()+2; //pits variable used to initialize board array increased by 2 to include the two player stores
+	    		if(pits >= 2 && pits <= 20 && pits % 2 == 0) //accept even numbers between 2 and 20 (inclusive)
 	    		{
 	    			pitsValid = true;
 	    		}
@@ -46,10 +45,11 @@ public class KalahGame
 	    	}
 	    }
 	    
+		//obtain valid user input for number of seeds per pit
 	    boolean seedsValid = false;
 	    while(seedsValid == false)
 	    {
-	    	System.out.print("Please enter the total number of seeds: ");
+	    	System.out.print("Please enter the number of seeds per pit: ");
 	    	try
 	    	{
 	    		seeds = input.nextInt();
@@ -69,36 +69,36 @@ public class KalahGame
 	    	}
 	    }
 	    
-		makeBoard(pits, seeds);
+		makeBoard(pits, seeds); //initializes the board array
 		
-		System.out.println("\nPlayer 1 is: "+player1.getPlayerName());
-		System.out.println("Player 2 is: "+player2.getPlayerName()+"\n");
-		System.out.println("Round Number: "+roundNumber);
+		System.out.println("\nPlayer 1 is: "+player1.getPlayerName()); //displays player1's name stored in player1 object
+		System.out.println("Player 2 is: "+player2.getPlayerName()+"\n"); //displays player2's name stored in player2 object
+		System.out.println("Round Number: "+roundNumber); //displays the round number 
 	}
 	
-	public void makeBoard(int pits, int seeds)
+	public void makeBoard(int pits, int seeds) //initializes the board array
 	{
 		board = new int [pits];
 		for(int i=0;i<pits;i++)
 		{
-			if(i == 0) //player 2's pit
+			if(i == 0) //player 2's store
 			{
-				board[i] = 0;
-				player2StoreIndex = 0;
+				board[i] = 0; //0 seeds in player2's store to begin with
+				player2StoreIndex = 0; //initializes player2StoreIndex for quick access
 			}
-			else if(i == pits/2) //player 1's pit
+			else if(i == pits/2) //player 1's store
 			{
-				board[i] = 0;
-				player1StoreIndex = pits/2;
+				board[i] = 0; //0 seeds in player1's store to begin with
+				player1StoreIndex = pits/2; //initializes player1StoreIndex for quick access
 			}
 			else
 			{
-				board[i] = seeds;
+				board[i] = seeds; //initializes each starting pit to have the right number of starting seeds
 			}
 		}
 	}
 	
-	public void printBoard()
+	public void printBoard() //prints out the board array
 	{
 		System.out.print("\nCurrent board: \n      ");
 		for(int i=pits-1;i>(pits/2);i--) //prints player 2's pits
@@ -118,9 +118,9 @@ public class KalahGame
 		System.out.println("\n");
 	}
 	
-	public int obtainValidUserInput(Player player1, Player player2, Scanner input)
+	public int obtainValidUserInput(Player player1, Player player2, Scanner input) //obtains a valid user move, depending on which player's turn it is
 	{
-		int startPoint = 0; 
+		int startPoint = 0; //stores the starting point of the player's move
 		
 		if(playerTurn == 1)
 		{

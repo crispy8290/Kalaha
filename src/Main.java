@@ -17,8 +17,8 @@ public class Main
 			kalah.printBoard();
 			kalah.playerTurnSwitch(); //switch turns
 	
-			boolean steal = kalah.promptSteal(player1, player2, input); //prompt player to steal first move
-			if(steal == true) //if player decides to steal
+			boolean steal = kalah.promptSteal(player1, player2, input); //prompt non-starting player to steal first move
+			if(steal == true) //if non-starting player decides to steal
 			{
 				kalah.stealMove(player1, player2, input, startPoint); //perform steal
 				kalah.printBoard();
@@ -27,11 +27,11 @@ public class Main
 				kalah.checkStealSeeds(player1, player2, input); 
 				kalah.playerTurnSwitch(); //switch turns
 			}
-			
 			kalah.gameEndCheck(player1, player2, input);
 			kalah.checkRepeatTurn(player1, player2, input); 
 			
-			while(kalah.getGameEnd() == false) //while game is not over, perform regular moves until win condition is met
+			//while game is not over, perform regular moves until win condition is met
+			while(kalah.getGameEnd() == false) 
 			{
 				kalah.playerMove(player1, player2, input);
 				kalah.printBoard();
